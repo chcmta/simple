@@ -116,6 +116,17 @@
             <li>
               <a
                 data-bs-toggle="collapse"
+                href="#faq-join"
+                role="button"
+                aria-expanded="false"
+                aria-controls="faq-join"
+                onclick="document.getElementById('faq-join-li').scrollIntoView();"
+                >入會辦法</a
+              >
+            </li>
+            <li>
+              <a
+                data-bs-toggle="collapse"
                 href="#faq-equipment"
                 role="button"
                 aria-expanded="false"
@@ -297,7 +308,7 @@
           </div>
 
           <ul class="faq-list">
-            <li>
+            <li id="faq-join-li">
               <a
                 data-bs-toggle="collapse"
                 class="collapsed"
