@@ -52,6 +52,33 @@
 
       gtag("config", "G-79HSJX3MBF");
     </script>
+
+    <script>
+      function loadEvent(file) {
+        fetch(file)
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById("event-content").innerHTML = html;
+          })
+          .catch((error) => {
+            console.error("Error loading event:", error);
+            document.getElementById("event-content").innerHTML =
+              "<p>無法載入活動內容，請稍後再試。</p>";
+          });
+      }
+      function loadArchiveEvent(file) {
+        fetch(file)
+          .then((response) => response.text())
+          .then((html) => {
+            document.getElementById("archive-event-content").innerHTML = html;
+          })
+          .catch((error) => {
+            console.error("Error loading event:", error);
+            document.getElementById("event-content").innerHTML =
+              "<p>無法載入活動內容，請稍後再試。</p>";
+          });
+      }
+    </script>
   </head>
 
   <body>
@@ -306,46 +333,56 @@
       </section>
       <!-- End Why Us Section -->
 
-	  <!-- ======= Important Events Section ======= -->
+      <!-- ======= Important Events Section ======= -->
       <section class="event" id="event">
         <div class="container">
           <div id="imact" class="section-title">
             <h2>重點活動</h2>
           </div>
-          <div class="section-content">
-		  
-		  
-          <!--    <div style="font-weight: bold; font-size: 22px;">
-                  <i>113年彰化山協 野外安全營</i> 
-            </div>  -->
-          <div style="font-weight: bold; font-size: 22px;">
-              <i>113年彰化山協 初階溯溪安全營</i>
-            </div>
-            <p></p>
-            <p>詳細簡章及資訊請至FB粉絲頁查詢或來電詢問。</p>
-            <p>🔗<a
-			href="https://www.facebook.com/share/p/34UJT7MssKxNy3ga/" target="_blank" >臉書粉絲頁</a></p>
-			
-            <div class="text-center">
-              <img
-                width="50%"
-                src="assets/img/113彰化山協溯溪初階營.webp"
-                class="img-fluid justify-content-center"
-                alt="113彰化山協溯溪初階營"
-              />
-            </div>
-			<p></p>
-         <!--   <p>詳細簡章及資訊請至FB粉絲頁查詢或來電詢問。</p>
-            <p>🔗<a
-			href="https://www.facebook.com/share/p/34UJT7MssKxNy3ga/" target="_blank" >臉書粉絲頁</a></p> -->
-
+          <div id="event-content">
+            <script>
+              loadEvent("activity/20250324.html");
+            </script>
           </div>
         </div>
       </section>
       <!-- End Important Events Section -->
-	  
-	  <!-- ======= Active Calendar Section ======= -->
-	        <section class="calendar" id="calendar">
+
+      <!-- ======= Important Events Section ======= -->
+      <section class="event section-bg" id="archiveevent">
+        <div class="container">
+          <div id="imact" class="section-title">
+            <h2>過往活動</h2>
+          </div>
+          <div class="section-content">
+            <ul id="event-list">
+              <li>
+                <a
+                  href="#20240711"
+                  onclick="loadArchiveEvent('activity/20240711.html')"
+                  >113年彰化山協 初階溯溪安全營</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#20240402"
+                  onclick="loadArchiveEvent('activity/20240402.html')"
+                  >113年彰化山協 野外安全營</a
+                >
+              </li>
+              <!-- Add more events as needed -->
+            </ul>
+            <div id="archive-event-content" class="mt-4">
+              <!-- Loaded event content will appear here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- End Important Events Section -->
+
+      <!-- ======= Active Calendar Section ======= -->
+      <section class="calendar" id="calendar">
         <div class="container">
           <div class="section-title">
             <h2>活動行事曆</h2>
@@ -353,9 +390,7 @@
           <div class="section-content">
             <iframe
               src="https://calendar.google.com/calendar/embed?height=400&wkst=2&bgcolor=%23ffffff&ctz=Asia%2FTaipei&showTitle=0&showTabs=0&showPrint=0&mode=AGENDA&hl=zh_TW&showCalendars=0&src=Y2hjbW91bnRhaW5hc3NvQGdtYWlsLmNvbQ&src=emgtdHcudGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043&color=%23E67C73"
-              style="border-width: 0"
-              width="600"
-              height="400"
+              style="border-width: 0; width: 100%; height: 400px"
               frameborder="0"
               scrolling="no"
             ></iframe>
@@ -366,7 +401,7 @@
       <!-- End Active Calendar Section -->
 
       <!-- ======= Frequenty Asked Questions Section ======= -->
-      <section class="faq faq-bg" id="faq">
+      <section class="faq" id="faq">
         <div class="container">
           <div class="section-title">
             <h2>FAQ</h2>
